@@ -8,13 +8,12 @@ public class Account
    private Euro totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
-   public Account( int theAccountNumber, int thePIN, 
-      double theAvailableBalance, double theTotalBalance )
+   public Account( int theAccountNumber, int thePIN,  Euro theAvailableBalance, Euro theTotalBalance )
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
-      availableBalance.valore = (long) theAvailableBalance;
-      totalBalance.valore = (long) theTotalBalance;
+      availableBalance =  theAvailableBalance;
+      totalBalance =  theTotalBalance;
    } // end Account constructor
 
    // determines whether a user-specified PIN matches PIN in Account
