@@ -1,13 +1,11 @@
-package code;
-// Account.java
-// Represents a bank account
+package code.Business_logic;
 
 public class Account 
 {
    private int accountNumber; // account number
    private int pin; // PIN for authentication
-   private double availableBalance; // funds available for withdrawal
-   private double totalBalance; // funds available + pending deposits
+   private Euro availableBalance; // funds available for withdrawal
+   private Euro totalBalance; // funds available + pending deposits
 
    // Account constructor initializes attributes
    public Account( int theAccountNumber, int thePIN, 
@@ -15,8 +13,8 @@ public class Account
    {
       accountNumber = theAccountNumber;
       pin = thePIN;
-      availableBalance = theAvailableBalance;
-      totalBalance = theTotalBalance;
+      availableBalance.valore = (long) theAvailableBalance;
+      totalBalance.valore = (long) theTotalBalance;
    } // end Account constructor
 
    // determines whether a user-specified PIN matches PIN in Account
@@ -29,28 +27,28 @@ public class Account
    } // end method validatePIN
    
    // returns available balance
-   public double getAvailableBalance()
+   public Euro getAvailableBalance()
    {
       return availableBalance;
    } // end getAvailableBalance
 
    // returns the total balance
-   public double getTotalBalance()
+   public Euro getTotalBalance()
    {
       return totalBalance;
    } // end method getTotalBalance
 
    // credits an amount to the account
-   public void credit( double amount )
+   public void credit( Euro amount )
    {
-      totalBalance += amount; // add to total balance
+      totalBalance = totalBalance.somma(amount); // add to total balance
    } // end method credit
 
    // debits an amount from the account
-   public void debit( double amount )
+   public void debit( Euro amount )
    {
-      availableBalance -= amount; // subtract from available balance
-      totalBalance -= amount; // subtract from total balance
+      availableBalance = availableBalance.sottrai(amount); // subtract from available balance
+      totalBalance = availableBalance.sottrai(amount); // subtract from total balance
    } // end method debit
 
    // returns account number

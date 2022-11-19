@@ -1,4 +1,4 @@
-package code;
+package code.Business_logic;
 // DepositSlot.java
 // Represents the deposit slot of the ATM
 

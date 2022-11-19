@@ -1,8 +1,8 @@
-package code;
+package code.Business_logic;
 public class Euro {
 
 
-	private long valore;
+	public long valore;
 
 	public Euro(long euro, long cent) {
 		if (euro >= 0) {
@@ -14,6 +14,10 @@ public class Euro {
 
 	public Euro(double d) {
 		valore = (long)(d*100);
+	}
+
+	public Euro(int i) {
+		valore = i*100;
 	}
 
 	public long getValore() {
